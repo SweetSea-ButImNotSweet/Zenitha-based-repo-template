@@ -12,17 +12,8 @@ Zenitha.setDebugInfo{ -- This list is reversed :')
 }
 -------------------------[/MODULE]-------------------------
 
--------------------------[ GLOBAL VARIABLES]-------------------------
-SCENE_PATH='assets/scene'
-
--- This is the list of default widgets that should be appear in demo
-DEFAULT_WIDGETLIST={
-    {type='button',x=70,y=40, w=120,h=60,text='MENU'},
-    {type='button',x=70,y=110,w=120,h=60,text='A'},
-}
--------------------------[/GLOBAL VARIABLES]-------------------------
-
 -------------------------[ LOVE2D]-------------------------
+love.keyboard.setTextInput(false)
 love.mouse.setVisible(false)
 -------------------------[/LOVE2D]-------------------------
 
@@ -32,15 +23,24 @@ love.mouse.setVisible(false)
 ]]
 
 ---------------[[ WIDGET]]---------------
-WIDGET._prototype.base.lineWidth=3
-WIDGET._prototype.base.cornerR  =0
+-- WIDGET._prototype.base.lineWidth=3
+-- WIDGET._prototype.base.cornerR  =0
+
+WIDGET.setDefaultOption{
+    base={
+        lineWidth=3,
+        cornerR  =0
+    },
+    button={cornerR=0}
+}
 ---------------[[/WIDGET]]---------------
 
 ---------------[[ SCENE]]---------------
-for _,f in next,love.filesystem.getDirectoryItems(SCENE_PATH) do
-    if FILE.isSafe(SCENE_PATH..'/'..f) then
+local scenePath='assets/scene'
+for _,f in next,love.filesystem.getDirectoryItems(scenePath) do
+    if FILE.isSafe(scenePath..'/'..f) then
         local sceneName=f:sub(1,-5)
-        SCN.add(sceneName,require(SCENE_PATH..'/'..sceneName))
+        SCN.add(sceneName,require(scenePath..'/'..sceneName))
     end
 end
 Zenitha.setFirstScene('main')
@@ -55,11 +55,21 @@ Zenitha.setFirstScene('main')
 ---------------[[/FONT]]---------------
 
 ---------------[[ LANG]]---------------
--- LANG.add{
---     en='assets/lang/en'
---     -- Add more here
--- }
--- LANG.setDefault('en')
+LANG.add{
+    en='assets/lang/en.lua'
+    -- Add more here
+}
+LANG.setDefault('en')
 ---------------[[/LANG]]---------------
 
 -------------------------[/ZENITHA]-------------------------
+
+
+
+-------------------------[OTHER STUFF - STARTS FROM HERE TO END OF FILE]-------------------------
+
+-- This is the list of default widgets that should be appear in demo
+DEFAULT_WIDGETLIST_IN_DEMO_SCENE={
+    {type='button',name='demo_menu',x=70,y=40, w=120,h=60,text='MENU'},
+    {type='button',name='demo_a',   x=70,y=110,w=120,h=60,text='A'},
+}
