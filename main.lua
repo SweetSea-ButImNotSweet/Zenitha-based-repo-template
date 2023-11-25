@@ -17,6 +17,15 @@ love.keyboard.setTextInput(false)
 love.mouse.setVisible(false)
 -------------------------[/LOVE2D]-------------------------
 
+-------------------------[ GLOBAL VARIABLES - NEED INITIALIZING FIRST]-------------------------
+-- This is the list of default widgets that should be appear in demo
+DEFAULT_WIDGETLIST_IN_DEMO_SCENE={
+    {type='button',name='demo_a',   x=70,y= 40, w=120,h=60,text='A'},
+
+    {type='button',name='demo_menu',x=70,y=-60, w=120,h=60,pos={0,1},text='MENU'},
+}
+-------------------------[/GLOBAL VARIABLES - NEED INITIALIZING FIRST]-------------------------
+
 -------------------------[ ZENITHA]-------------------------
 --[[
     This is for reference, although you can edit this part more
@@ -67,9 +76,3 @@ LANG.setDefault('en')
 
 
 -------------------------[OTHER STUFF - STARTS FROM HERE TO END OF FILE]-------------------------
-
--- This is the list of default widgets that should be appear in demo
-DEFAULT_WIDGETLIST_IN_DEMO_SCENE={
-    {type='button',name='demo_menu',x=70,y=40, w=120,h=60,text='MENU'},
-    {type='button',name='demo_a',   x=70,y=110,w=120,h=60,text='A'},
-}
