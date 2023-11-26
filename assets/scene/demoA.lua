@@ -1,10 +1,11 @@
 local scene={}
 
 function scene.enter()
+    scene.widgetList.inputBox:setText("")
 end
 
 widgetList={
-    WIDGET.new{type='inputBox',x=140,y=10,w=850,h=590}
+    {type='inputBox',name='inputBox',x=330,y=10,w=660,h=590,text=LANG'demoA_inputBox'}
 }
 
 scene.widgetList=TABLE.combine(widgetList,DEFAULT_WIDGETLIST_IN_DEMO_SCENE)
