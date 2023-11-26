@@ -67,6 +67,7 @@ LANG.add{
     en='assets/lang/lang_en.lua'
     -- Add more here
 }
+LANG.set('en')
 LANG.setDefault('en')
 ---------------[[/LANG]]---------------
 -------------------------[/ZENITHA]-------------------------
